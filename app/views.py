@@ -8,3 +8,4 @@ def saludo(req):
 def home(req):
     context = {}
     return render(req, 'home.html', context)
+    
