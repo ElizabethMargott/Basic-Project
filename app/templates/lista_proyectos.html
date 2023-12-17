@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <h1 class="bg-primary text-center fs-2 text-white">Proyectos</h1>
+        
+        <ul>
+            {% for proyecto in proyectos %}
+              <li>{{ proyecto.nombre }} - {{ proyecto.descripcion }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock %}

@@ -8,4 +8,10 @@ def saludo(req):
 def home(req):
     context = {}
     return render(req, 'home.html', context)
-    
+
+
+def lista_proyectos(request):
+    proyectos = Proyecto.objects.all()
+
+    return render(request, 'lista_proyectos.html', {'proyectos': proyectos})
+
