@@ -1,20 +1,15 @@
 # Usar una imagen base de Python
-FROM python:3.12
+FROM python:3.10-slim-buster
 
 # Establecer un directorio de trabajo
 WORKDIR /app
 
-# Copiar los requerimientos del proyecto
+# Instalar las dependencias de Python
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Instalar los requerimientos del proyecto
-RUN pip install -r requirements.txt
-
-# Copiar el resto del código del proyecto
+# Copiar el proyecto
 COPY . .
 
-# Exponer el puerto en el que se ejecutará Django
-EXPOSE 8000
-
 # Comando para iniciar el servidor de Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi"]
