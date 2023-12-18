@@ -2,15 +2,46 @@
 
 {% block content %}
 
-    <div class="container">
-        <h1 class="bg-primary text-center fs-2 text-white">Proyectos</h1>
-        
-        <ul>
-            {% for proyecto in proyectos %}
-              <li>{{ proyecto.nombre }} - {{ proyecto.descripcion }}</li>
-            {% endfor %}
-        </ul>
-
+<div class="container">
+    <h1 class="text-center my-4">Proyectos</h1>
+    
+    <div class="mt-4">
+        <a href="{% url 'listar_tareas' %}" class="btn btn-success btn-block">Ir a Tareas</a>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-info ">
+                        <tr class="text-center">
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for proyecto in proyectos %}
+                        <tr>
+                            <td class="align-middle">{{ proyecto.nombre }}</td>
+                            <td class="align-middle">{{ proyecto.descripcion }}</td>
+                            <td class="align-middle"><img class="img-thumbnail" style="max-width: 100px; max-height: 100px;" src="/media/{{ proyecto.img }}" alt="{{ proyecto.nombre }}"></td>
+                            <td class="align-middle text-center">
+                                <a href="{% url 'eliminar_proyecto' proyecto_id=proyecto.id %}" class="btn btn-danger btn-sm me-1">Eliminar</a>
+                                <a href="{% url 'editar_proyecto' proyecto_id=proyecto.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'crear_proyecto' %}" class="btn btn-success btn-block">Crear proyecto</a>
+    </div>
+</div>
 
 {% endblock %}

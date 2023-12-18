@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="container">
+        
+        <h1>Detalles del Proyecto</h1>
+        <h2>{{ proyecto.nombre }}</h2>
+        <p>{{ proyecto.descripcion }}</p>
+        <a href="{% url 'editar_proyecto' proyecto.id %}">Editar Proyecto</a>
+
+    </div>
+
+{% endblock %}
