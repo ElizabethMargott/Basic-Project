@@ -1,5 +1,5 @@
 # Usar una imagen base de Python
-FROM python:3.10-slim-buster
+FROM python:3.11-slim-buster
 
 # Establecer un directorio de trabajo
 WORKDIR /app
@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Comando para iniciar el servidor de Django
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "project.wsgi"]
