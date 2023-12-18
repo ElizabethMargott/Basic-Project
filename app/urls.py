@@ -5,19 +5,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('proyectos/', views.lista_proyectos, name='lista_proyectos'),
-    path('proyectos/create/', views.crear_proyecto, name='crear_proyecto'),
-    path('proyectos/<int:proyecto_id>/', views.detalle_proyecto, name='detalle_proyecto'),
-    path('proyectos/<int:proyecto_id>/editar/', views.editar_proyecto, name='editar_proyecto'),
-    path('proyectos/<int:proyecto_id>/eliminar/', views.eliminar_proyecto, name='eliminar_proyecto'),
-    
-
-    path('tareas/', views.listar_tareas, name='listar_tareas'),
-    path('proyectos/<int:proyecto_id>/tareas/crear/', views.crear_tarea, name='crear_tarea'),
-
-    path('proyectos/<int:proyecto_id>/tareas/crear/', views.crear_tarea, name='crear_tarea'),
-    path('proyectos/<int:proyecto_id>/tareas/', views.lista_tareas, name='lista_tareas'),
-
+    path('example/', views.listar_example, name='example'),
+    path('example/create/', views.crear_example, name='crear_example'),
+    path('example/<int:example_id>/', views.detalle_example, name='detalle_pexample'),
+    path('example/<int:example_id>/editar/', views.editar_example, name='editar_example'),
+    path('example/<int:example_id>/eliminar/', views.eliminar_example, name='eliminar_example'),
 ]
 
 if settings.DEBUG:
